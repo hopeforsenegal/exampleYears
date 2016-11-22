@@ -1,0 +1,38 @@
+Kamaus-MBP:~ kamau$ exampleYears
+
+dataset: '/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/1.txt'
+1901:1999
+1920:1988
+1987:1999
+The year with the most number of people alive for dataset /Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/1.txt is 1988 with 3 people alive
+
+dataset: '/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/2.txt'
+1987:1999
+The year with the most number of people alive for dataset /Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/2.txt is 1999 with 1 people alive
+
+dataset: '/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/3.txt'
+
+dataset: '/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/4.txt'
+1901:1999
+1920:1988
+1987:1988
+1987:1998
+1987:1999
+1987:1999
+The year with the most number of people alive for dataset /Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/4.txt is 1988 with 6 people alive
+
+dataset: '/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/5.txt' doesn't exist 
+
+dataset: '/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/6.txt'
+1901:1999
+1920:1988
+1987:1988
+1987:1998
+1987:1999
+1987:1999
+1902:1937
+1902:1936
+1903:1935
+1904:1934
+The year with the most number of people alive for dataset /Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/6.txt is 1934 with 6 people alive
+Kamaus-MBP:~ kamau$ 
