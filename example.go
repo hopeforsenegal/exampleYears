@@ -5,16 +5,16 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
-	"sort"
 )
 
 func HighestYear(yearStrings []string) (maxYear int, numberAlive int) {
 	m := make(map[int]int)
 
 	for _, v := range yearStrings {
-		var yearRange []string = strings.Split(v, ":")
+		yearRange := strings.Split(v, ":")
 		start, _ := strconv.Atoi(yearRange[0])
 		end, _ := strconv.Atoi(yearRange[1])
 		m[start]++
@@ -39,24 +39,20 @@ func HighestYear(yearStrings []string) (maxYear int, numberAlive int) {
 		counter += value
 	}
 
-	if counter > 0 {
-		log.Fatalf("Unbalanced start year to end year!!!! %v", counter)
-	}
-
 	return maxYear, numberAlive
 }
 
 func YearList(filepath string) []string {
-	var yearList []string
 	file, err := os.Open(filepath)
 	if err != nil {
 		fmt.Printf("\ndataset: '%s' doesn't exist \n", filepath)
-		return yearList
+		return nil
 	}
 	defer file.Close()
 
 	fmt.Printf("\ndataset: '%s'\n", filepath)
 
+	var yearList []string
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		year := scanner.Text()
@@ -72,15 +68,16 @@ func YearList(filepath string) []string {
 }
 
 func HighestYearTest(filepath string) {
-	yearList := YearList(filepath)
-	highestYear, count := HighestYear(yearList)
-	fmt.Printf("The year with the most number of people alive for dataset %s is %v with %v people alive\n", filepath, highestYear, count)
+	if yearList := YearList(filepath); yearList != nil {
+		highestYear, count := HighestYear(yearList)
+		fmt.Printf("The year with the most number of people alive for dataset %s is %v with %v people alive\n", filepath, highestYear, count)
+	}
 }
 
 func main() {
-	//HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/1.txt")
-	//HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/2.txt")
-	//HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/3.txt")
+	HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/1.txt")
+	HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/2.txt")
+	HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/3.txt")
 	HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/4.txt")
 	HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/5.txt")
 	HighestYearTest("/Users/kamau/Documents/GoPath/src/github.com/hopeforsenegal/exampleYears/6.txt")
